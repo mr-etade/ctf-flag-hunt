@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Flag Hunt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>CTF Flag Hunt: Easy Challenges (10 Points)</h1>
+        <p>Submit your flags here:<a href="https://mr-etade.github.io/ctf-frontend/submit.html">FLAG SUBMISSION</a>.</p>
+        <div class="difficulty">
+            <h2>Challenge 1: Python Peek</h2>
+            <p>Write Python code to print "Hello World!". If correct, the flag will be revealed.</p>
+            <textarea id="code1" class="code-editor"># Write your code here</textarea>
+            <button onclick="runChallenge(1)">Run Code</button>
+            <div id="output1" class="output"></div>
+
+            <h2>Challenge 2: Prolog Puzzle</h2>
+            <p>Inspect this Prolog code to find the flag</p>
+            <pre>
+              likes(john, ctf).
+              flag("CTF{prolog_facts}").
+              query(X) :- flag(X).
+            </pre>
+
+            <h2>Challenge 3: JS Button Hunt</h2>
+            <p>Click the button and check the console</p>
+            <button onclick="revealFlag()">Click Me</button>
+
+            <h2>Challenge 4: SQL Search</h2>
+            <p>Analyze this MySQL query. What's the flag in the result?</p>
+            <pre>
+              SELECT id, flag FROM ctf_table WHERE id = 1;
+              -- Table data:
+              +----+------------------+
+              | id | flag             |
+              +----+------------------+
+              |  1 | CTF{sql_select}  |
+              +----+------------------+
+            </pre>
+
+            <h2>Challenge 5: Riddle Me This</h2>
+            <p>Answer: I'm a Python conditional. You chain me after 'if' but before 'else'. What am I?</p>
+            <p>Flag format: CTF{<your_answer>}</p>
+
+            <h2>Challenge 6: Python Loop Trace</h2>
+            <p>Write a Python loop that prints numbers from 0 to 2. If correct, the flag will be revealed.</p>
+            <textarea id="code6" class="code-editor"># Write your loop here</textarea>
+            <button onclick="runChallenge(6)">Run Code</button>
+            <div id="output6" class="output"></div>
+
+            <h2>Challenge 7: Function Riddle</h2>
+            <p>Riddle: I'm a Python feature, anonymous and brief. One line defines me, no name for relief. 
+              I start with a keyword that sounds like a Greek letter. What am I?</p>
+            <p>Flag format: CTF{&lt;your_answer&gt;_func}</p>
+
+            <h2>Challenge 8: Hidden Map Clue</h2>
+            <p>Inspect the page source. The flag is hidden in a comment!</p>
+            <!-- Shooossshh. This is a secret comment: CTF{map_filter} -->
+
+            <h2>Challenge 9: Prolog Rule Quest</h2>
+            <p>If I were to query this Prolog: ?- rule(X, 2). <br>What's the flag?</p>
+            <pre>
+              rule(X, Y) :- Y > 1, X = "CTF{prolog_rules}".
+              rule(X, Y) :- Y =< 1, X = "none".
+            </pre>
+
+            <h2>Challenge 10: Class Inspection</h2>
+            <p>Create a Python class called "Hacker" with an __init__ method that sets self.name to "Alice".</p>
+            <textarea id="code10" class="code-editor"># Write your class definition here</textarea>
+            <button onclick="runChallenge(10)">Run Code</button>
+            <div id="output10" class="output"></div>
+
+            <h2>Challenge 11: JS Hover Reveal</h2>
+            <p>Hover over the text below. Check the alert for the flag!</p>
+            <p id="hoverMe">Hover Here!</p>
+
+            <h2>Challenge 12: JS Click Counter</h2>
+            <p>Click the button 3 times to reveal the flag in the console!</p>
+            <button onclick="countClick()">Click Me</button>
+
+            <h2>Challenge 13: SQL Filter</h2>
+            <p>What flag does this MySQL query return?</p>
+            <pre>
+              SELECT id, flag, difficulty FROM challenges WHERE difficulty = 'easy' AND id = 13;
+              -- Data:
+              +----+-------------------+------------+
+              | id | flag              | difficulty |
+              +----+-------------------+------------+
+              | 13 | CTF{sql_where}    | easy       |
+              +----+-------------------+------------+
+            </pre>
+
+            <h2>Challenge 14: Type Teaser</h2>
+            <p>
+              In Python, I'm a number type that can hold decimals. Combine me with <code>int</code> for the flag.<br>
+              Format: <code>CTF{&lt;type1&gt;_&lt;type2&gt;}</code>
+            </p>
+
+            <h2>Challenge 15: Text Decoder</h2>
+            <p>Decode this: "CTF{holi_fkdql}". Shift each letter back 3 positions (e.g., h -> e). Flag format: CTF{...}</p>
+        </div>
+        <p><a href="https://mr-etade.github.io/ctf-frontend/submit.html">FLAG SUBMISSION</a>.</p>
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script src="script_easy.js"></script>
+</body>
+</html>

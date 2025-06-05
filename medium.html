@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium CTF Challenges</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="script_medium.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Medium Challenges (20 Points)</h1>
+        <p>Fix code, query logic, or crack puzzles to reveal flags! Submit at <a href="https://mr-etade.github.io/ctf-frontend/submit.html">FLAG SUBMISSION</a>.</p>
+        <div class="difficulty">
+            <h2>Challenge 1: Python Loop Fix</h2>
+                <p>Fix this Python code to print the flag. Edit and run below!</p>
+                <pre><code>for i in range(5)
+                    print("Flag found!")</code></pre>
+                <textarea class="code-editor" id="code1">for i in range(5)
+                    print("Flag found!")</textarea>
+                <button onclick="runPythonCode1()">Run Code</button>
+                <div class="output" id="output1"></div>
+
+            <h2>Challenge 2: Prolog Query Puzzle</h2>
+            <p>Find all messages where N is between 3 and 7. Fix the query!</p>
+            <textarea class="code-editor" id="prologCode">
+            /* Fix this predicate */
+            find_secret(N, Message) :- 
+                between(2, 3, N),  % Should find N values 3-7
+                message(N, Message).  % Should retrieve the message
+            </textarea>
+
+            <button onclick="validateProlog()">Validate Solution</button>
+            <div class="output" id="prologOutput"></div>
+
+            <h2>Challenge 3: JS Callback Chain</h2>
+            <p>Fix the JS callback order. Check console after clicking!</p>
+            <button onclick="runCallback()">Test It</button>
+
+            <h2>Challenge 4: SQL Group By Puzzle</h2>
+            <p>Fix this MySQL query to group by flag and show only flags that appear more than 3 times. Edit the query below!</p>
+            <textarea class="code-editor" id="sqlCode4">SELECT flag, COUNT(*) FROM challenges WHERE points = 20 
+            -- Missing GROUP BY and HAVING clauses!
+            -- Sample data: 
+            -- flag="FLAG_A", points=20 (5 rows)
+            -- flag="FLAG_B", points=20 (2 rows) 
+            -- flag="FLAG_C", points=10 (3 rows)</textarea>
+            <button onclick="validateSQL4()">Execute Query</button>
+            <div class="output" id="sqlOutput4"></div>
+
+            <h2>Challenge 5: Python Nested Fix</h2>
+            <p>Fix the nested ifs to reveal the flag. When x is between 5 and 15, print the flag!</p>
+            <textarea class="code-editor" id="code5">x = 10
+            if x > 5
+                if x < 15:
+                    print("Close!")
+            else:
+                print("Nope!")</textarea>
+            <button onclick="runCode(5)">Run Code</button>
+            <div class="output" id="output5"></div>
+
+            <h2>Challenge 6: Python Range Fix</h2>
+            <p>Fix this Python code to print numbers from 3 to 7 using range(). Edit and run below!</p>
+            <pre><code>for i in range(3, 7):
+                print(i)</code></pre>
+            <textarea class="code-editor" id="code6">for i in range(3, 7):
+                print(i)</textarea>
+            <button onclick="runCode(6)">Run Code</button>
+            <div class="output" id="output6"></div>
+
+            <h2>Challenge 7: Prolog Lists Riddle</h2>
+            <p>Riddle:
+            <br>"I am a list in Prolog, but I'm missing my tail.
+            My head is [1, 2], and my full form should prevail.
+            If you append [3, 4] in the right way,
+            The flag will appear—what do you say?"
+
+            <br>Enter your answer (a valid Prolog list):
+            </p>
+            <textarea class="code-editor" id="prologAnswer7" placeholder="Enter the correct Prolog list..."></textarea>
+            <button onclick="checkPrologList()">Submit Answer</button>
+            <div class="output" id="output7"></div>
+
+            <h2>Challenge 8: Prolog Backtracking Trap</h2>
+            <p>🔍 Fix this predicate to return only one correct solution!
+            <br>Problem:
+            The following Prolog code defines a predicate get_secret(X) that should return only one answer (the hidden flag).
+            However, it currently produces too many solutions due to uncontrolled backtracking.
+            <br>Your task:
+            <br>1. Modify the predicate so that get_secret(X) succeeds exactly once with the correct answer.
+            <br>2. Do not hardcode the flag—the correct solution should work for any future test cases.
+            <br>3. Test your solution with the query: ?- get_secret(X).
+            <br>Broken Code (Preloaded in Editor):
+            </p>
+            <textarea class="code-editor" id="prologCode8" rows="4">
+            % Modify this predicate to stop backtracking
+            get_secret("first_attempt").
+            get_secret("second_attempt").
+            get_secret("third_attempt").
+            </textarea>
+            <button onclick="validatePrologBacktrack()">Check Solution</button>
+            <div class="output" id="output8"></div>
+
+            <h2>Challenge 9: Python While Repair</h2>
+            <p>Fix the while loop to break correctly. Run to find the flag!</p>
+            <textarea class="code-editor" id="code9">i = 0
+            while i < 5
+                i += 1
+                print("Looping!")
+                if i = 3:
+                    break
+            </textarea>
+            <button onclick="runCode(9)">Run Code</button>
+            <div class="output" id="output9"></div>
+
+            <h2>Challenge 10: Base64 Decode</h2>
+            <p>Decode this Base64: "Q1RGe3JlY3Vyc2l2ZV9mdW5jfQ==". Flag format: CTF{...}</p>
+
+            <h2>Challenge 11: Python Abstract Class Fix</h2>
+            <p>Fix this Python abstract class implementation. The abstract method should enforce implementation in subclasses!</p>
+            <textarea class="code-editor" id="code11">from abc import ABC, abstractmethod
+            class Shape(ABC):
+                def area(self):
+                    pass
+
+            class Circle(Shape):
+                def __init__(self, radius):
+                    self.radius = radius
+                
+                def area(self):
+                    return 3.14 * self.radius ** 2
+
+            # This should work after fixing the abstract class
+            c = Circle(5)
+            print(f"Area: {c.area()}")
+            print("CTF{abstract_class}")
+            </textarea>
+            <button onclick="runCode(11)">Run Code</button>
+            <div class="output" id="output11"></div>
+
+            <h2>Challenge 12: JavaScript Event Riddle</h2>
+            <p><strong>Riddle:</strong><br>
+            "I'm a method that waits and listens with care,<br>
+            For clicks, hovers, and keys pressed everywhere.<br>
+            I take two things: an event's name so clear,<br>
+            And a function to run when that event is here.<br>
+            <br>
+            What am I called in JavaScript's domain?<br>
+            (Hint: It's how you make elements respond to user interaction)"
+            </p>
+            <input type="text" id="eventRiddleAnswer" placeholder="Enter your answer..." style="width: 300px; padding: 8px; margin: 10px 0;">
+            <button onclick="checkEventRiddle()">Submit Answer</button>
+            <div class="output" id="output12"></div>
+
+            <h2>Challenge 13: Python Reduce Bug</h2>
+            <p>Fix this Python reduce function to sum all numbers in the list. The reduce function is missing a required parameter!</p>
+            <textarea class="code-editor" id="code13">from functools import reduce
+            nums = [1, 2, 3, 4]
+            result = reduce(lambda x, y: x + y)  # Missing the iterable parameter!
+            print(f"Sum: {result}")
+            </textarea>
+            <button onclick="runCode(13)">Run Code</button>
+            <div class="output" id="output13"></div>
+
+            <h2>Challenge 14: JavaScript Callback Fix</h2>
+            <p>Fix this JavaScript callback function. The processData function should accept a callback and execute it with the result!</p>
+            <textarea class="code-editor" id="jsCode14">
+            function processData(data) {
+                // Process the data
+                let result = data.map(x => x * 2);
+                
+                // Missing: call the callback function with the result
+                // The callback parameter is missing from function signature
+            }
+
+            function displayResult(output) {
+                console.log("Processed data:", output);
+                console.log("Success!");
+            }
+
+            // This should work after fixing the callback
+            let numbers = [1, 2, 3, 4, 5];
+            processData(numbers, displayResult);
+            </textarea>
+            <button onclick="validateCallback14()">Run Code</button>
+            <div class="output" id="output14"></div>
+
+            <h2>Challenge 15: Hidden Attribute</h2>
+            <p>Inspect the button's data attribute (Ctrl+U) and decode the hint!</p>
+            <button data-hint="Q1RGe2luaXRfbWV0aG9kfQ==">Inspect Me</button>
+
+            <h2>Challenge 16: Python Class Method Fix</h2>
+            <p>Fix the Python class issues to call the method correctly and reveal the flag:</p>
+            <textarea class="code-editor" id="code16">class Challenge:
+                def reveal()
+                    print("Found it!")
+                    
+            c = Challenge
+            c.reveal()</textarea>
+            <button onclick="runCode(16)">Run Code</button>
+            <div class="output" id="output16"></div>
+
+            <h2>Challenge 17: SQL Group By Puzzle</h2>
+            <p>Write a SQL query to find products with total sales exceeding K1000. The flag will appear when your query is correct.</p>
+            <p>Database schema:
+            <pre>
+            products (product_id, name, price)
+            sales (sale_id, product_id, quantity, sale_date)
+            </pre></p>
+            <textarea class="code-editor" id="sqlCode17" rows="4">
+            -- Write your query here
+            -- Should return product names and total sales
+            -- Only include products with total sales > 1000
+            </textarea>
+            <button onclick="validateSQL17()">Execute Query</button>
+            <div class="output" id="output17"></div>
+
+            <h2>Challenge 18: SQL HAVING Clause Puzzle</h2>
+            <p>Write a SQL query to find departments with average salaries above K75,000. The flag will appear when your query is correct.</p>
+            <p>Database schema:
+            <pre>
+            employees (emp_id, name, salary, dept_id)
+            departments (dept_id, dept_name, location)
+            </pre></p>
+            <textarea class="code-editor" id="sqlCode18" rows="5">
+            -- Write your query here
+            -- Should return department names and average salaries
+            -- Only include departments with average salary > 75000
+            -- Round averages to 2 decimal places
+            </textarea>
+            <button onclick="validateSQL18()">Execute Query</button>
+            <div class="output" id="output18"></div>
+
+            <h2>Challenge 19: Python Type Conversion</h2>
+            <p>Fix this Python program to properly calculate the total. The flag will appear when your solution is correct.</p>
+            </p>
+            <textarea class="code-editor" id="code19" rows="6">
+            num1 = "12"
+            num2 = "3.5"
+            num3 = "26.5"
+
+            total = num1 + num2 + num3
+            print(f"Total: {total}")
+            </textarea>
+            <button onclick="runCode(19)">Run Code</button>
+            <div class="output" id="output19"></div>
+
+            <h2>Challenge 20: Python Inheritance Puzzle</h2>
+            <p>Complete this program to demonstrate proper inheritance. The flag will appear when:</p>
+            <ol>
+                <li>The Animal base class is properly inherited</li>
+                <li>The Dog class overrides the make_sound() method</li>
+                <li>The show_info() method displays the expected output</li>
+            </ol>
+            <textarea class="code-editor" id="code20" rows="10">
+            class Animal:
+                def __init__(self, name):
+                    self.name = name
+                    self.sound = "Generic animal sound"
+                
+                def make_sound(self):
+                    print(self.sound)
+                
+                def show_info(self):
+                    print(f"{self.name} says: ", end="")
+                    self.make_sound()
+
+            class Dog(Animal):
+                def __init__(self, name):
+                    # Initialize the base class and set sound to "Woof!"
+                    pass
+                
+                # Override the make_sound method here
+
+            # This should print "Buddy says: Woof!"
+            d = Dog("Buddy")
+            d.show_info()
+            </textarea>
+            <button onclick="runCode(20)">Run Code</button>
+            <div class="output" id="output20"></div>
+
+            <h2>Challenge 21: Binary Crack</h2>
+            <p>Convert this binary to text: "0100001101010100010001100111101101101100011010010111001101110100010111110110001101101111011011010111000001111101". Flag format: CTF{...}</p>
+        </div>
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+</html>

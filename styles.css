@@ -1,0 +1,193 @@
+body {
+    font-family: 'Courier New', monospace;
+    background: #0a0a0a;
+    color: #0f0;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+}
+h1 {
+    color: #ff0;
+    text-shadow: 0 0 10px #ff0;
+}
+.difficulty {
+    margin: 2rem;
+}
+a {
+    display: block;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 200px;
+    background: #333;
+    color: #0f0;
+    text-decoration: none;
+    border: 2px solid #0f0;
+}
+a:hover {
+    background: #0f0;
+    color: #000;
+}
+pre {
+    background: #222;
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #0f0;
+    overflow-x: auto;
+}
+button, p#hoverMe {
+    cursor: pointer;
+    background: #333;
+    color: #0f0;
+    padding: 0.5rem;
+    border: 1px solid #0f0;
+}
+button:hover, p#hoverMe:hover {
+    background: #0f0;
+    color: #000;
+}
+/* Styles moved from medium.html */
+.code-editor {
+    width: 100%;
+    height: 150px;
+    background: #222;
+    color: #0f0;
+    border: 1px solid #0f0;
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box; /* Added for better layout consistency */
+    padding: 5px; /* Added for better text visibility */
+    margin-top: 5px; /* Added for spacing */
+    margin-bottom: 5px; /* Added for spacing */
+}
+
+.output {
+    margin-top: 10px;
+    background: #333;
+    padding: 10px;
+    color: #0f0;
+    border: 1px solid #0f0;
+    min-height: 40px; /* Ensure output area is visible */
+    white-space: pre-wrap; /* Preserve formatting of output */
+    word-wrap: break-word; /* Prevent long lines from breaking layout */
+}
+body {
+    font-family: 'Courier New', monospace;
+    background: #0a0a0a;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    color: #ff0;
+    text-shadow: 0 0 10px #ff0;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: #0f0;
+    border-bottom: 1px solid #0f0;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.difficulty {
+    margin: 2rem 0;
+}
+
+a {
+    display: block;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 200px;
+    background: #333;
+    color: #0f0;
+    text-decoration: none;
+    border: 2px solid #0f0;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: #0f0;
+    color: #000;
+}
+
+pre {
+    background: #222;
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #0f0;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+button {
+    cursor: pointer;
+    background: #333;
+    color: #0f0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #0f0;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #0f0;
+    color: #000;
+}
+
+.code-editor {
+    width: 100%;
+    height: 150px;
+    background: #222;
+    color: #0f0;
+    border: 1px solid #0f0;
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 0;
+    resize: vertical;
+}
+
+.output {
+    margin-top: 10px;
+    background: #333;
+    padding: 10px;
+    color: #0f0;
+    border: 1px solid #0f0;
+    min-height: 40px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+/* Additional styles for specific elements */
+#dblClick {
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+[data-hint] {
+    position: relative;
+}
+
+[data-hint]:hover::after {
+    content: attr(data-hint);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    padding: 5px;
+    border: 1px solid #0f0;
+    z-index: 1;
+}
